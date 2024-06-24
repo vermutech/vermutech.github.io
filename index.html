@@ -12,14 +12,22 @@
             font-family: 'Roboto', sans-serif; 
             margin: 0; 
             padding: 0; 
-            background-color: #fff5e6; 
-            color: #333; 
+            background-color: rgb(255, 245, 230); 
+            background-image: linear-gradient(10deg, rgba(238, 120, 53, 0.1) 25%, transparent 25%, transparent 75%, rgba(238, 120, 53, 0.1) 75%, rgba(238, 120, 53, 0.1)),
+            linear-gradient(10deg, rgba(238, 120, 53, 0.1) 25%, transparent 25%, transparent 75%, rgba(238, 120, 53, 0.1) 75%, rgba(238, 120, 53, 0.1));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: #333;
         }
-        .header { 
-            background: #EE7835; 
-            color: #fff; 
-            padding: 20px; 
-            text-align: center; 
+        .header, .footer {
+            background-color: #EE7835;
+            background-image: linear-gradient(10deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)),
+                            linear-gradient(10deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
         .header h1 {
             font-family: 'Raleway', sans-serif;
@@ -29,22 +37,19 @@
             text-align: center; 
         }
         .cta-button { 
-            background: #EE7835; 
+            background: #EE7835;
+            font-weight: bolder;
+            font-size: large;
             color: #fff; 
             padding: 10px 20px; 
             text-decoration: none; 
-            border-radius: 5px; 
+            border-radius: 5px;
+            border-color: #d96c2e;
             margin-top: 20px; 
             display: inline-block; 
         }
         .cta-button:hover { 
             background: #d96c2e; 
-        }
-        .footer { 
-            background: #EE7835; 
-            color: #fff; 
-            text-align: center; 
-            padding: 20px; 
         }
         .logo {
             width: 100px;
