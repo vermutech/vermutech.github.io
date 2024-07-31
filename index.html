@@ -101,7 +101,7 @@
     <div class="footer">
         <p>Contacte: <a href="mailto:hola@vermutech.com" style="color: white;">hola@vermutech.com</a></p>
         <div class="social-icons">
-            <a href="https://t.me/vermutech"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/vermutech" id="telegram-button"><i class="fab fa-telegram-plane"></i></a>
             <!-- Afegeix aquí les icones d'altres xarxes socials si cal -->
         </div>
     </div>
@@ -119,12 +119,19 @@ document.getElementById('subscribe-button').addEventListener('click', function()
         }
     });
 });
-
 document.getElementById('archive-button').addEventListener('click', function() {
     insights.track({
         id: 'view-archive',
         parameters: {
             button: 'archive'
+        }
+    });
+});
+document.getElementById('telegram-button').addEventListener('click', function() {
+    insights.track({
+        id: 'go-to-telegram',
+        parameters: {
+            button: 'telegram'
         }
     });
 });
