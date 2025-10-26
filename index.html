@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vermutech Newsletter</title>
+    <meta name="description" content="Newsletter setmanal en català sobre tecnologia, cultura digital i eines pràctiques per gaudir cada diumenge a l'hora del vermut." />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Afegir font Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet"> <!-- Afegir font Raleway pel títol -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Afegir Font Awesome per les icones -->
@@ -18,117 +19,500 @@
     <meta property="og:url" content="https://vermutech.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vermutech">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWorkSeries",
+      "name": "Vermutech Newsletter",
+      "alternateName": "Vermutech",
+      "description": "Newsletter setmanal sobre tecnologia, cultura digital i eines pràctiques per gaudir a l'hora del vermut.",
+      "inLanguage": "ca",
+      "url": "https://vermutech.com/",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@type": "Person",
+        "name": "Eduard Carreras",
+        "sameAs": [
+          "https://vermutech.substack.com",
+          "https://t.me/vermutech"
+        ]
+      },
+      "distribution": "OnlineOnly",
+      "creativeWorkStatus": "Published",
+      "frequency": "Weekly"
+    }
+    </script>
     <style>
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: rgb(255, 245, 230); 
-            background-image: linear-gradient(10deg, rgba(238, 120, 53, 0.1) 25%, transparent 25%, transparent 75%, rgba(238, 120, 53, 0.1) 75%, rgba(238, 120, 53, 0.1)),
-            linear-gradient(10deg, rgba(238, 120, 53, 0.1) 25%, transparent 25%, transparent 75%, rgba(238, 120, 53, 0.1) 75%, rgba(238, 120, 53, 0.1));
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            color: #333;
+        :root {
+            --vermutech-orange: #ee7835;
+            --vermutech-deep: #b14d14;
+            --vermutech-cream: #fff3e1;
+            --text-dark: #2b1e16;
         }
-        .header, .footer {
-            background-color: #EE7835;
-            background-image: linear-gradient(10deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1)),
-                            linear-gradient(10deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #fff, var(--vermutech-cream));
+            color: var(--text-dark);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        header {
+            background: linear-gradient(160deg, #f79d62, var(--vermutech-orange));
             color: #fff;
-            padding: 20px;
+            padding: 60px 20px 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .header h1 {
-            margin-top: 10px;
-            font-family: 'Raleway', sans-serif;
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background: rgba(43,30,22,0.9);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
         }
-        .description {
-            max-width: 600px;
+        .site-nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .site-nav a.logo-mark {
+            letter-spacing: 0.12em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 18px;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a.active {
+            color: #fff;
+            position: relative;
+        }
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 2px;
+            background: #fff;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('assets/logo.png') no-repeat right -80px bottom -40px / 260px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 840px;
             margin: 0 auto;
-            text-align: center;
-        }
-        .container, .arxiu {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px; 
-            text-align: center; 
-        }
-        .cta-button { 
-            background: #EE7835;
-            font-weight: bolder;
-            font-size: large;
-            color: #fff; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            border-radius: 5px;
-            border: 2px solid #d96c2e;
-            margin-top: 20px;
-            display: inline-block;
-        }
-        .arxiu a {
-            color: #EE7835;
-        }
-        .cta-button:hover { 
-            background: #d96c2e;
-            border: 2px solid #fff;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
         }
         .logo {
-            width: 100px;
-            height: auto;
-            margin-top: 30px;
+            width: 96px;
+            margin-bottom: 20px;
+        }
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 12px;
+        }
+        header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 10px 0;
+        }
+        .subheading {
+            font-size: 1.15rem;
+            margin: 0 auto 24px;
+            max-width: 520px;
+        }
+        .hero-highlights {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 24px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .hero-highlights li {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+        }
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+        section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+        h2 {
+            font-family: 'Raleway', sans-serif;
+            margin-top: 0;
+            color: var(--vermutech-deep);
+        }
+        .newsletter-copy p {
+            margin-top: 0;
+        }
+        .cta-button {
+            background: #fff;
+            color: var(--vermutech-deep);
+            border: 2px solid var(--vermutech-deep);
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+        .cta-button.primary {
+            background: var(--vermutech-deep);
+            color: #fff;
+            border-color: transparent;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #2b1e16;
+            color: #fff;
+            border-color: #2b1e16;
+        }
+        .secondary-actions {
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        .secondary-actions a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: rgba(255,255,255,0.5);
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .subscription-embed {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .subscription-embed iframe {
+            max-width: 100%;
+            border-radius: 16px;
+            border: 1px solid #f1d2b2;
+        }
+        .cta-stack {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .highlight-card {
+            border: 1px solid #f5d5b6;
+            border-radius: 16px;
+            padding: 20px;
+            background: var(--vermutech-cream);
+        }
+        .highlight-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .stat {
+            flex: 1 1 180px;
+            text-align: center;
+            border: 1px solid #f5d5b6;
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .stat strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--vermutech-deep);
+        }
+        .about {
+            background: var(--vermutech-cream);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            align-items: center;
+        }
+        .about-photo {
+            text-align: center;
+        }
+        .about-photo img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .author-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .author-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--vermutech-deep);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .author-links a:hover {
+            color: var(--vermutech-orange);
+        }
+        footer {
+            background: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            padding: 32px 20px;
+        }
+        footer a {
+            color: #fff;
         }
         .social-icons a {
-            color: white;
+            color: #fff;
             margin: 0 10px;
             font-size: 24px;
             text-decoration: none;
         }
         .social-icons a:hover {
-            color: #d96c2e;
+            color: var(--vermutech-orange);
+        }
+        @media (max-width: 640px) {
+            section {
+                padding: 24px;
+            }
+            .hero-highlights li {
+                width: 100%;
+                text-align: center;
+            }
+            .site-nav {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
-<body>
+<body id="top">
 
-    <div class="header">
-        <img src="assets/logo.png" alt="Vermutech Logo" class="logo">
-        <h1>Vermutech: Tecnologia i curiositat a l'hora del vermut</h1>
-        <div class="description">
-            <p>
-                Endinsa't en una cita setmanal amb la tecnologia. Cada diumenge,
-                a l'hora del vermut, t'arriba una selecció de recursos,
-                reflexions i eines digitals per innovar i créixer.
+    <nav class="site-nav">
+        <a href="#top" class="logo-mark">Vermutech</a>
+        <div class="nav-links">
+            <a href="#newsletter">Seccions</a>
+            <a href="#benefits">Per què</a>
+            <a href="#about">Sobre mi</a>
+            <a href="#community">Comunitat</a>
+        </div>
+    </nav>
+    <header>
+        <div class="hero-inner">
+            <img src="assets/logo.png" alt="Vermutech" class="logo">
+            <p class="eyebrow">Newsletter setmanal · diumenges a l'hora del vermut</p>
+        <h1>Vermutech: tecnologia, cultura digital i curiositat</h1>
+            <p class="subheading">
+                Una cita relaxada per descobrir eines, idees i històries digitals mentre gaudeixes del teu vermut.
             </p>
+            <ul class="hero-highlights">
+                <li>💾 Programari: una eina útil a cada edició</li>
+                <li>🤔 Curiositats i cultura digital per inspirar-te</li>
+                <li>🌟 Un concepte tecnològic explicat sense fum</li>
+            </ul>
+            <a href="https://vermutech.substack.com" class="cta-button primary" id="subscribe-button"><i class="fas fa-bell"></i> Uneix-te a Vermutech</a>
+            <div class="secondary-actions">
+                Prefereixes mirar abans? Consulta l'<a href="https://vermutech.substack.com/archive" id="archive-button">arxiu complet</a>.
+            </div>
         </div>
-        
-    </div>
+    </header>
 
-    <div class="container" id="newsletter">
-        <h2>Subscriu-te a Vermutech</h2>
-        <p>
-            Cada setmana, comparteixo eines, curiositats i coneixements per explorar la
-            tecnologia d'una manera diferent. Descobreix noves perspectives i idees per
-            aplicar al teu dia a dia, mentre gaudeixes d'un moment de desconnexió.
-        </p>
-        <a href="https://vermutech.substack.com" class="cta-button" id="subscribe-button"><i class="fas fa-bell"></i> Uneix-te a Vermutech</a>
-    </div>
-    <div class="arxiu">
-        <p>
-            Per veure què he compartit fins ara, consulta l'<a href="https://vermutech.substack.com/archive" id="archive-button">arxiu complet de Vermutech</a>.
-        </p>
-    </div>
+    <main>
+        <section id="newsletter">
+            <h2>Què rebràs cada diumenge</h2>
+            <div class="newsletter-copy">
+                <p>
+                    Cada número segueix la mateixa estructura perquè sigui fàcil d'escanejar i d'incorporar al teu ritual de diumenge. Aquestes són les seccions fixes que trobaràs sempre:
+                </p>
+            </div>
+            <div class="highlights-grid">
+                <article class="highlight-card">
+                    <h3>🌀 "Merdes vàries"</h3>
+                    <p>Introducció personal on comparteixo què he viscut durant la setmana: descobriments, proves i anècdotes.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>💾 Programari & eines</h3>
+                    <p>Recomanacions honestes d’aplicacions o serveis que val la pena provar, amb context d’ús real.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>🤔 Curiositats</h3>
+                    <p>Petites píndoles per obrir ment: cultura digital, música, creativitat i històries que no surten als timelines.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>📦 Recursos</h3>
+                    <p>Articles, llibres i referències que ajuden a aprofundir en tendències o metodologies.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>📊 Enquesta</h3>
+                    <p>Una pregunta curta per escoltar la comunitat i saber com viu la tecnologia.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>🌟 El concepte</h3>
+                    <p>Un microassaig que explica un concepte tecnològic de manera planera i sense soroll.</p>
+                </article>
+            </div>
+            <div class="subscription-embed">
+                <iframe src="https://vermutech.substack.com/embed" width="480" height="150" style="border:none; background:white;" frameborder="0" scrolling="no" title="Formulari de subscripció Vermutech"></iframe>
+            </div>
+            <div class="cta-stack">
+                <a href="https://vermutech.substack.com" class="cta-button primary"><i class="fas fa-envelope-open"></i> Prefereixo obrir el Substack</a>
+            </div>
+        </section>
 
-    <div class="footer">
-        <p>Contacte: <a href="mailto:hola@vermutech.com" style="color: white;">hola@vermutech.com</a></p>
+        <section id="benefits">
+            <h2>Per què Vermutech funciona</h2>
+            <div class="stats-row">
+                <div class="stat">
+                    <strong>✨ Selecció curada</strong>
+                    Contingut destil·lat perquè només hi arribi el que val la pena explorar.
+                </div>
+                <div class="stat">
+                    <strong>⏱️ Lectura breu</strong>
+                    Format micro-assaig que pots acabar mentre prepares el vermut.
+                </div>
+                <div class="stat">
+                    <strong>🧠 Conceptes clars</strong>
+                    Explicacions senzilles perquè entenguis el “per què” abans de posar-te a construir.
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-grid">
+                <div class="about-photo">
+                    <img src="assets/me.jpeg" alt="Retrat d'Eduard Carreras" loading="lazy">
+                </div>
+                <div>
+                    <p class="eyebrow" style="color: var(--vermutech-deep);">Sobre l'autor</p>
+                    <h2 style="color: var(--text-dark);">Hola, sóc l'Eduard Carreras</h2>
+                    <p>
+                        Soc CTO i cofundador de <a href="https://gisce.net" target="_blank" rel="noopener">GISCE-TI</a>, on fa més de divuit anys que lidero el desenvolupament de solucions de programari per a empreses del sector energètic. M’apassiona crear arquitectures de programari intuïtives i d’alt rendiment, combinant experiència tècnica amb una mirada creativa i pràctica.
+                    </p>
+                    <p>
+                        Com a enginyer i desenvolupador full-stack, he dissenyat productes per a facturació, mesura i gestió de xarxes que ajuden les companyies de serveis públics a ser més eficients i innovadores. També m’interessa tot el que té a veure amb la seguretat informàtica i les tècniques d’optimització de processos.
+                    </p>
+                    <p>
+                        A Vermutech comparteixo, cada diumenge a l’hora del vermut, allò que em mou: tecnologia, curiositat i reflexió. És un espai per explorar idees, eines i inspiracions sobre com la tecnologia pot millorar tant el nostre treball com la nostra manera d’entendre el món 🍸
+                    </p>
+                    <div class="author-links">
+                        <a href="https://www.linkedin.com/in/ecarreras/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/ecarreras" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://mastodont.cat/@ecarreras" target="_blank" rel="me noopener"><i class="fab fa-mastodon"></i> Mastodon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community">
+            <h2>Segueix la conversa</h2>
+            <p>Compartim recursos extra i conversa diària a Telegram. Vine a fer el vermut virtual amb nosaltres.</p>
+            <a href="https://t.me/vermutech" class="cta-button" id="telegram-button"><i class="fab fa-telegram-plane"></i> Uneix-te al canal</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contacte: <a href="mailto:hola@vermutech.com">hola@vermutech.com</a></p>
         <div class="social-icons">
-            <a href="https://t.me/vermutech" id="telegram-button"><i class="fab fa-telegram-plane"></i></a>
-            <!-- Afegeix aquí les icones d'altres xarxes socials si cal -->
+            <a href="https://t.me/vermutech"><i class="fab fa-telegram-plane"></i></a>
         </div>
-    </div>
+    </footer>
 
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = navLinks
+        .map(link => ({
+            link,
+            target: document.querySelector(link.getAttribute('href'))
+        }))
+        .filter(item => item.target);
+
+    if (sections.length === 0) {
+        return;
+    }
+
+    const activate = id => {
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                activate(entry.target.id);
+            }
+        });
+    }, {
+        rootMargin: '-45% 0px -40% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(item => observer.observe(item.target));
+
+    // Default active link when page loads
+    activate(sections[0].target.id);
+});
+</script>
 <script src="https://getinsights.io/js/insights.js"></script>
 <script>
 if (window.location.hostname === 'vermutech.com') {
