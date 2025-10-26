@@ -52,6 +52,9 @@
         * {
             box-sizing: border-box;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -99,6 +102,19 @@
         }
         .nav-links a:hover {
             color: #fff;
+        }
+        .nav-links a.active {
+            color: #fff;
+            position: relative;
+        }
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -4px;
+            height: 2px;
+            background: #fff;
         }
         header::after {
             content: "";
@@ -460,6 +476,43 @@
     </footer>
 
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = navLinks
+        .map(link => ({
+            link,
+            target: document.querySelector(link.getAttribute('href'))
+        }))
+        .filter(item => item.target);
+
+    if (sections.length === 0) {
+        return;
+    }
+
+    const activate = id => {
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                activate(entry.target.id);
+            }
+        });
+    }, {
+        rootMargin: '-45% 0px -40% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(item => observer.observe(item.target));
+
+    // Default active link when page loads
+    activate(sections[0].target.id);
+});
+</script>
 <script src="https://getinsights.io/js/insights.js"></script>
 <script>
 if (window.location.hostname === 'vermutech.com') {
