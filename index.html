@@ -247,6 +247,23 @@
             border: 6px solid #fff;
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         }
+        .author-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .author-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--vermutech-deep);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .author-links a:hover {
+            color: var(--vermutech-orange);
+        }
         footer {
             background: var(--text-dark);
             color: #fff;
@@ -367,7 +384,7 @@
                     <p class="eyebrow">Sobre l'autor</p>
                     <h2>Hola, sóc l'Eduard Carreras</h2>
                     <p>
-                        Soc CTO i cofundador de GISCE-TI, on fa més de divuit anys que lidero el desenvolupament de solucions de programari per a empreses del sector energètic. M’apassiona crear arquitectures de programari intuïtives i d’alt rendiment, combinant experiència tècnica amb una mirada creativa i pràctica.
+                        Soc CTO i cofundador de <a href="https://gisce.net" target="_blank" rel="noopener">GISCE-TI</a>, on fa més de divuit anys que lidero el desenvolupament de solucions de programari per a empreses del sector energètic. M’apassiona crear arquitectures de programari intuïtives i d’alt rendiment, combinant experiència tècnica amb una mirada creativa i pràctica.
                     </p>
                     <p>
                         Com a enginyer i desenvolupador full-stack, he dissenyat productes per a facturació, mesura i gestió de xarxes que ajuden les companyies de serveis públics a ser més eficients i innovadores. També m’interessa tot el que té a veure amb la seguretat informàtica i les tècniques d’optimització de processos.
@@ -375,6 +392,11 @@
                     <p>
                         A Vermutech comparteixo, cada diumenge a l’hora del vermut, allò que em mou: tecnologia, curiositat i reflexió. És un espai per explorar idees, eines i inspiracions sobre com la tecnologia pot millorar tant el nostre treball com la nostra manera d’entendre el món 🍸
                     </p>
+                    <div class="author-links">
+                        <a href="https://www.linkedin.com/in/ecarreras/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/ecarreras" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://mastodont.cat/@ecarreras" target="_blank" rel="me noopener"><i class="fab fa-mastodon"></i> Mastodon</a>
+                    </div>
                 </div>
             </div>
         </section>
