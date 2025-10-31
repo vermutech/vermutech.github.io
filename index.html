@@ -13,7 +13,7 @@
     <link rel="dns-prefetch" href="https://getinsights.io">
     
     <!-- Preload recursos crítics -->
-    <link rel="preload" href="assets/logo-200.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/logo-200.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" as="style">
     
@@ -155,9 +155,14 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: url('assets/logo-400.png') no-repeat right -80px bottom -40px / 260px;
+            background: url('assets/logo-400.webp') no-repeat right -80px bottom -40px / 260px;
             opacity: 0.08;
             pointer-events: none;
+        }
+        @supports not (background-image: url('test.webp')) {
+            header::after {
+                background-image: url('assets/logo-400.png');
+            }
         }
         .hero-inner {
             max-width: 840px;
@@ -399,13 +404,16 @@
     </nav>
     <header>
         <div class="hero-inner">
-            <img src="assets/logo-200.png" 
-                 srcset="assets/logo-200.png 200w, assets/logo-400.png 400w" 
-                 sizes="96px"
-                 alt="Vermutech" 
-                 class="logo" 
-                 width="96" 
-                 height="96">
+            <picture>
+                <source type="image/webp" srcset="assets/logo-200.webp 200w, assets/logo-400.webp 400w" sizes="96px">
+                <img src="assets/logo-200.png" 
+                     srcset="assets/logo-200.png 200w, assets/logo-400.png 400w" 
+                     sizes="96px"
+                     alt="Vermutech" 
+                     class="logo" 
+                     width="96" 
+                     height="96">
+            </picture>
             <p class="eyebrow">Newsletter setmanal · diumenges a l'hora del vermut</p>
         <h1>Vermutech: tecnologia, cultura digital i curiositat</h1>
             <p class="subheading">
@@ -523,7 +531,7 @@
     <footer>
         <p>Contacte: <a href="mailto:hola@vermutech.com">hola@vermutech.com</a></p>
         <div class="social-icons">
-            <a href="https://t.me/vermutech"><svg class="icon" style="width:24px;height:24px"><use href="#icon-telegram"></use></svg></a>
+            <a href="https://t.me/vermutech" aria-label="Canal de Telegram de Vermutech"><svg class="icon" style="width:24px;height:24px"><use href="#icon-telegram"></use></svg></a>
         </div>
     </footer>
 
