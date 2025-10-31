@@ -1,7 +1,9 @@
-const CACHE_NAME = 'vermutech-v3';
+const CACHE_NAME = 'vermutech-v4';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/assets/logo-200.webp',
+  '/assets/logo-400.webp',
   '/assets/logo-200.png',
   '/assets/logo-400.png',
   '/assets/logo.ico',
