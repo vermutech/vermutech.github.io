@@ -37,13 +37,17 @@
 
 ## 🚀 Optimitzacions de Rendiment Aplicades
 
-### 1. Imatges Responsives
-- Utilitzem `srcset` amb múltiples mides
+### 1. Imatges Responsives i WebP
+- Format **WebP** amb fallback PNG per compatibilitat
+- Utilitzem `<picture>` i `srcset` amb múltiples mides
 - `loading="lazy"` per imatges below the fold
 - `width` i `height` explícits per evitar layout shifts
 - Compressions aplicades amb ImageMagick
 
-**IMPORTANT:** Sempre usa `logo-200.png` i `logo-400.png`, MAI `logo.png` (massa gran)
+**IMPORTANT:** 
+- Sempre usa imatges WebP (`logo-200.webp`, `logo-400.webp`)
+- MAI `logo.png` (594KB - massa gran)
+- Reducció: PNG 56-172KB → WebP 12-22KB (78-87% estalvi)
 
 ### 2. Preconnect i DNS-Prefetch
 ```html
@@ -160,9 +164,13 @@ convert imatge.png -strip -quality 85 -resize 400x400 imatge-400.png
 # JPEG
 convert imatge.jpg -strip -quality 85 -resize 800x800 imatge-800.jpg
 
-# WebP (si està disponible)
+# WebP (PREFERIT - millor compressió)
 convert imatge.png -quality 85 imatge.webp
+convert imatge.png -quality 85 -resize 200x200 imatge-200.webp
+convert imatge.png -quality 85 -resize 400x400 imatge-400.webp
 ```
+
+**Sempre genera WebP + PNG com a fallback**
 
 ### Mides Recomanades
 - **Logos/Icones:** 200px, 400px
@@ -251,7 +259,7 @@ Si els usuaris veuen contingut vell:
 ---
 
 **Última actualització:** 2024-10-31  
-**Versió Cache Actual:** v3  
+**Versió Cache Actual:** v4  
 **Contacte:** hola@vermutech.com
 
 ## 🎨 Icones SVG
@@ -271,3 +279,19 @@ Les icones són SVG inline definides dins d'un `<svg style="display:none">` al `
 - `#icon-mastodon` - Mastodon
 
 Per afegir noves icones, afegeix un nou `<symbol>` dins del SVG ocult i usa'l amb `<use>`.
+
+## ♿ Accessibilitat
+
+### Links amb només icones
+Sempre afegeix `aria-label` als links que només tenen icones:
+
+```html
+<a href="..." aria-label="Descripció clara del destí">
+    <svg class="icon"><use href="#icon-..."></use></svg>
+</a>
+```
+
+### Imatges
+- Sempre afegeix `alt` descriptiu
+- Afegeix `width` i `height` per evitar CLS
+- Usa `loading="lazy"` per imatges below the fold
