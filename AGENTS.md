@@ -31,8 +31,9 @@
 - **JavaScript** vanilla (sense frameworks)
 - **Service Worker** per cache i rendiment
 - **Google Fonts:** Roboto, Raleway
-- **Font Awesome 5.15.4** per icones
+- **SVG Icons** inline (sense dependències externes)
 - **Insights.io** per analytics
+- **Substack iframe** amb lazy loading
 
 ## 🚀 Optimitzacions de Rendiment Aplicades
 
@@ -51,10 +52,11 @@
 <link rel="dns-prefetch" href="https://vermutech.substack.com">
 ```
 
-### 3. Scripts Asíncrons
-- Font Awesome: carregat amb `onload` async
+### 3. Scripts Asíncrons i Lazy Loading
 - Analytics: carregat després del `window.load`
 - Navigation scripts: amb `defer`
+- Substack iframe: lazy loading amb Intersection Observer
+- Icones SVG inline (sense dependències externes)
 
 ### 4. Service Worker Cache
 - Cache de recursos estàtics
@@ -249,5 +251,23 @@ Si els usuaris veuen contingut vell:
 ---
 
 **Última actualització:** 2024-10-31  
-**Versió Cache Actual:** v2  
+**Versió Cache Actual:** v3  
 **Contacte:** hola@vermutech.com
+
+## 🎨 Icones SVG
+
+Les icones són SVG inline definides dins d'un `<svg style="display:none">` al `<head>`. Per usar-les:
+
+```html
+<svg class="icon"><use href="#icon-bell"></use></svg>
+```
+
+**Icones disponibles:**
+- `#icon-bell` - Notificacions
+- `#icon-envelope` - Email
+- `#icon-telegram` - Telegram
+- `#icon-linkedin` - LinkedIn
+- `#icon-github` - GitHub
+- `#icon-mastodon` - Mastodon
+
+Per afegir noves icones, afegeix un nou `<symbol>` dins del SVG ocult i usa'l amb `<use>`.
