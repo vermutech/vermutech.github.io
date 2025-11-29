@@ -99,6 +99,31 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--vermutech-deep);
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        /* Enhanced focus indicators for better keyboard navigation */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--vermutech-orange);
+            outline-offset: 2px;
+        }
+        .cta-button:focus {
+            outline: 3px solid var(--text-dark);
+            outline-offset: 4px;
+        }
         img {
             max-width: 100%;
             height: auto;
@@ -124,7 +149,7 @@
             font-size: 0.95rem;
         }
         .site-nav a {
-            color: rgba(255,255,255,0.9);
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
         }
@@ -179,7 +204,7 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.8);
+            color: #fff;
             margin-bottom: 12px;
         }
         header h1 {
@@ -392,8 +417,10 @@
     </style>
 </head>
 <body id="top">
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Salta al contingut principal</a>
 
-    <nav class="site-nav">
+    <nav class="site-nav" role="navigation" aria-label="Navegació principal">
         <a href="#top" class="logo-mark">Vermutech</a>
         <div class="nav-links">
             <a href="#newsletter">Seccions</a>
@@ -402,7 +429,7 @@
             <a href="#community">Comunitat</a>
         </div>
     </nav>
-    <header>
+    <header role="banner">
         <div class="hero-inner">
             <picture>
                 <source type="image/webp" srcset="assets/logo-200.webp 200w, assets/logo-400.webp 400w" sizes="96px">
@@ -419,21 +446,21 @@
             <p class="subheading">
                 Una cita relaxada per descobrir eines, idees i històries digitals mentre gaudeixes del teu vermut.
             </p>
-            <ul class="hero-highlights">
+            <ul class="hero-highlights" role="list">
                 <li>💾 Programari: una eina útil a cada edició</li>
                 <li>🤔 Curiositats i cultura digital per inspirar-te</li>
                 <li>🌟 Un concepte tecnològic explicat sense fum</li>
             </ul>
-            <a href="https://vermutech.substack.com" class="cta-button primary" id="subscribe-button"><svg class="icon"><use href="#icon-bell"></use></svg> Uneix-te a Vermutech</a>
+            <a href="https://vermutech.substack.com" class="cta-button primary" id="subscribe-button" aria-label="Uneix-te al newsletter de Vermutech"><svg class="icon" aria-hidden="true"><use href="#icon-bell"></use></svg> Uneix-te a Vermutech</a>
             <div class="secondary-actions">
-                Prefereixes mirar abans? Consulta l'<a href="https://vermutech.substack.com/archive" id="archive-button">arxiu complet</a>.
+                Prefereixes mirar abans? Consulta l'<a href="https://vermutech.substack.com/archive" id="archive-button" aria-label="Consulta l'arxiu complet del newsletter">arxiu complet</a>.
             </div>
         </div>
     </header>
 
-    <main>
-        <section id="newsletter">
-            <h2>Què rebràs cada diumenge</h2>
+    <main id="main-content" role="main">
+        <section id="newsletter" aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading">Què rebràs cada diumenge</h2>
             <div class="newsletter-copy">
                 <p>
                     Cada número segueix la mateixa estructura perquè sigui fàcil d'escanejar i d'incorporar al teu ritual de diumenge. Aquestes són les seccions fixes que trobaràs sempre:
@@ -469,12 +496,12 @@
                 <iframe data-src="https://vermutech.substack.com/embed" width="480" height="150" style="border:none; background:white;" frameborder="0" scrolling="no" title="Formulari de subscripció Vermutech" loading="lazy"></iframe>
             </div>
             <div class="cta-stack">
-                <a href="https://vermutech.substack.com" class="cta-button primary"><svg class="icon"><use href="#icon-envelope"></use></svg> Prefereixo obrir el Substack</a>
+                <a href="https://vermutech.substack.com" class="cta-button primary" aria-label="Prefereixo obrir el Substack"><svg class="icon" aria-hidden="true"><use href="#icon-envelope"></use></svg> Prefereixo obrir el Substack</a>
             </div>
         </section>
 
-        <section id="benefits">
-            <h2>Per què Vermutech funciona</h2>
+        <section id="benefits" aria-labelledby="benefits-heading">
+            <h2 id="benefits-heading">Per què Vermutech funciona</h2>
             <div class="stats-row">
                 <div class="stat">
                     <strong>✨ Selecció curada</strong>
@@ -491,7 +518,7 @@
             </div>
         </section>
 
-        <section class="about" id="about">
+        <section class="about" id="about" aria-labelledby="about-heading">
             <div class="about-grid">
                 <div class="about-photo">
                     <img src="assets/me.jpeg" 
@@ -502,7 +529,7 @@
                 </div>
                 <div>
                     <p class="eyebrow" style="color: var(--vermutech-deep);">Sobre l'autor</p>
-                    <h2 style="color: var(--text-dark);">Hola, sóc l'Eduard Carreras</h2>
+                    <h2 style="color: var(--text-dark);" id="about-heading">Hola, sóc l'Eduard Carreras</h2>
                     <p>
                         Soc CTO i cofundador de <a href="https://gisce.net" target="_blank" rel="noopener">GISCE-TI</a>, on fa més de divuit anys que lidero el desenvolupament de solucions de programari per a empreses del sector energètic. M’apassiona crear arquitectures de programari intuïtives i d’alt rendiment, combinant experiència tècnica amb una mirada creativa i pràctica.
                     </p>
@@ -513,25 +540,25 @@
                         A Vermutech comparteixo, cada diumenge a l’hora del vermut, allò que em mou: tecnologia, curiositat i reflexió. És un espai per explorar idees, eines i inspiracions sobre com la tecnologia pot millorar tant el nostre treball com la nostra manera d’entendre el món 🍸
                     </p>
                     <div class="author-links">
-                        <a href="https://www.linkedin.com/in/ecarreras/" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-linkedin"></use></svg> LinkedIn</a>
-                        <a href="https://github.com/ecarreras" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-github"></use></svg> GitHub</a>
-                        <a href="https://mastodont.cat/@ecarreras" target="_blank" rel="me noopener"><svg class="icon"><use href="#icon-mastodon"></use></svg> Mastodon</a>
+                        <a href="https://www.linkedin.com/in/ecarreras/" target="_blank" rel="noopener" aria-label="Eduard Carreras a LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg> LinkedIn</a>
+                        <a href="https://github.com/ecarreras" target="_blank" rel="noopener" aria-label="Eduard Carreras a GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg> GitHub</a>
+                        <a href="https://mastodont.cat/@ecarreras" target="_blank" rel="me noopener" aria-label="Eduard Carreras a Mastodon"><svg class="icon" aria-hidden="true"><use href="#icon-mastodon"></use></svg> Mastodon</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="community">
-            <h2>Segueix la conversa</h2>
+        <section id="community" aria-labelledby="community-heading">
+            <h2 id="community-heading">Segueix la conversa</h2>
             <p>Compartim recursos extra i conversa diària a Telegram. Vine a fer el vermut virtual amb nosaltres.</p>
-            <a href="https://t.me/vermutech" class="cta-button" id="telegram-button"><svg class="icon"><use href="#icon-telegram"></use></svg> Uneix-te al canal</a>
+            <a href="https://t.me/vermutech" class="cta-button" id="telegram-button" aria-label="Uneix-te al canal de Telegram de Vermutech"><svg class="icon" aria-hidden="true"><use href="#icon-telegram"></use></svg> Uneix-te al canal</a>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>Contacte: <a href="mailto:hola@vermutech.com">hola@vermutech.com</a></p>
         <div class="social-icons">
-            <a href="https://t.me/vermutech" aria-label="Canal de Telegram de Vermutech"><svg class="icon" style="width:24px;height:24px"><use href="#icon-telegram"></use></svg></a>
+            <a href="https://t.me/vermutech" aria-label="Canal de Telegram de Vermutech"><svg class="icon" style="width:24px;height:24px" aria-hidden="true"><use href="#icon-telegram"></use></svg></a>
         </div>
     </footer>
 
