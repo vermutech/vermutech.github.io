@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vermutech-v4';
+const CACHE_NAME = 'vermutech-v5';
 const urlsToCache = [
   '/',
   '/index.html',
